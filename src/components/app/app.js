@@ -6,7 +6,7 @@ import ErrorMessage from '../errorMessage/errorMessage';
 import CharacterPage from '../characterPage/characterPage';
 
 import ItemList from '../itemList';
-import CharDetails from '../charDetails';
+import CharDetails from '../itemDetails';
 import GotService from '../../services/gotService';
 
 
@@ -15,7 +15,7 @@ export default class App extends Component {
   gotService = new GotService();
 
   state = {
-    showRandomChar: true,
+    showRandomChar: false, // ВРЕМЕННО
     error: false
   }
 

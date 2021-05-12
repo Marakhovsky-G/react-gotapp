@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Col, Row } from 'reactstrap';
 import ItemList from '../itemList';
-import CharDetails, { Field } from '../charDetails/charDetails';
+import ItemDetails, { Field } from '../itemDetails/itemDetails';
 import ErrorMessage from '../errorMessage/errorMessage';
 import GotService from '../../services/gotService';
 import RowBlock from '../rowBlock/rowBlock';
@@ -43,12 +42,15 @@ export default class CharacterPage extends Component {
     )
 
     const charDetails = (
-      <CharDetails charId={this.state.selectedChar}>
+      <ItemDetails
+        itemId={this.state.selectedChar}
+        getData={this.gotService.getCharacter}
+      >
         <Field field="gender" label="Gender" />
         <Field field="born" label="Born" />
         <Field field="died" label="Died" />
         <Field field="culture" label="Culture" />
-      </CharDetails>
+      </ItemDetails>
     )
 
     return (
