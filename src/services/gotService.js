@@ -40,10 +40,10 @@ export default class GotService {
   }
 
   isSet(data) {
-    if (data) {
-      return data
-    } else {
+    if (!data || data == '') {
       return 'no data :('
+    } else {
+      return data
     }
   }
 
@@ -69,20 +69,20 @@ export default class GotService {
       name: this.isSet(house.name),
       region: this.isSet(house.region),
       words: this.isSet(house.words),
-      titles: this.isSet(house.titles),
-      ancestralWeapons: this.isSet(house.ancestralWeapons)
+      ancestralWeapons: this.isSet(house.ancestralWeapons),
+      seats: this.isSet(house.seats)
     };
   }
 
   _transformBook = (book) => {
+    const normalRelease = book.released.slice(0, 10);
+
     return {
       id: this._addId(book),
       name: this.isSet(book.name),
       numberOfPages: this.isSet(book.numberOfPages),
       publisher: this.isSet(book.publisher),
-      released: this.isSet(book.released)
+      released: this.isSet(normalRelease)
     };
   }
 }
-
-const got = new GotService();
