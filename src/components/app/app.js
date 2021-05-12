@@ -27,10 +27,10 @@ export default class App extends Component {
   }
 
   render() {
-    const {showRandomChar, error} = this.state;
+    const { showRandomChar, error } = this.state;
 
     if (error) {
-      return <ErrorMessage/>
+      return <ErrorMessage />
     }
     const char = showRandomChar ? <RandomChar /> : null;
 
@@ -46,7 +46,23 @@ export default class App extends Component {
               {char}
             </Col>
           </Row>
-          <CharacterPage/>
+          <CharacterPage />
+          {/* <Row>
+            <Col md='6'>
+              <ItemList onCharSelected={this.onCharSelected} />
+            </Col>
+            <Col md='6'>
+              <CharDetails charId={this.state.selectedChar} />
+            </Col>
+          </Row>
+          <Row>
+            <Col md='6'>
+              <ItemList onCharSelected={this.onCharSelected} />
+            </Col>
+            <Col md='6'>
+              <CharDetails charId={this.state.selectedChar} />
+            </Col>
+          </Row> */}
         </Container>
       </>
     );
